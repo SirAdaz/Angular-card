@@ -1,0 +1,11 @@
+<button (click)="toggleAffichage()">
+    {{ afficherCartes ? 'Cacher les cartes' : 'Afficher les cartes' }}
+  </button>
+  
+  <div *ngIf="afficherCartes">
+    <ng-container *ngFor="let employe of employes">
+      <!-- On vérifie ici que l'ID est bien pair -->
+      <app-carte *ngIf="employe.id % 2 === 0" [employe]="employe"></app-carte>
+    </ng-container>
+  </div>
+  
